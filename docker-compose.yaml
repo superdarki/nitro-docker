@@ -60,5 +60,20 @@ services:
     networks:
       nitro:
 
+  phpmyadmin:
+    container_name: phpmyadmin
+    image: phpmyadmin:5
+    links:
+      - mysql
+    environment:
+      PMA_HOST: mysql
+      PMA_PORT: 3306
+      PMA_USER: arcturus_user
+      PMA_PASSWORD: arcturus_pw
+    ports:
+      - 8881:80
+    networks:
+      nitro:
+
 networks:
   nitro:
